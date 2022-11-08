@@ -1,0 +1,101 @@
+{
+    "products":[
+        {
+            "name": "sugar",
+            "unit":"kg",
+            "mrp":50,
+            "sellingPrice":45,
+            "PurchaseRate":42,
+            "brand": "parry",
+            "category": "staples",
+            "quantity":1,
+            "current-stock":200,
+            "barcode":"202210060"
+        },
+        {
+            "name": "Jagary",
+            "unit":"kg",
+            "mrp":50,
+            "sellingPrice":45,
+            "PurchaseRate":42,
+            "brand": "Mandya",
+            "category": "staples",
+            "quantity":1,
+            "current-stock":200,
+            "barcode":"202210061"
+        },
+        {
+            "name": "Red label Tea 100gm",
+            "unit":"gm",
+            "mrp":40,
+            "sellingPrice":40,
+            "PurchaseRate":38,
+            "brand": "parry",
+            "category": "staples",
+            "quantity":100,
+            "current-stock":200,
+            "barcode":"202210062"
+        },
+        {
+            "name": "Gold winner",
+            "unit":"ml",
+            "mrp":201,
+            "sellingPrice":150,
+            "PurchaseRate":147,
+            "brand": "Gold winner",
+            "category": "oil",
+            "quantity":1000,
+            "current-stock":200,
+            "barcode":"202210063"
+        },
+        {
+            "name": "Freedom oil",
+            "unit":"ml",
+            "mrp":201,
+            "sellingPrice":150,
+            "PurchaseRate":147,
+            "brand": "Freedom",
+            "category": "oil",
+            "quantity":1000,
+            "current-stock":200,
+            "barcode":"202210064"
+        },
+        {
+            "name": "Freedom oil",
+            "unit":"ml",
+            "mrp":201,
+            "sellingPrice":150,
+            "PurchaseRate":147,
+            "brand": "Freedom",
+            "category": "oil",
+            "quantity":1000,
+            "current-stock":200,
+            "barcode":"202210065"
+        },
+        {
+            "name": "Castor oil",
+            "unit":"ml",
+            "mrp":240,
+            "sellingPrice":185,
+            "PurchaseRate":150,
+            "brand": "Ganesha",
+            "category": "oil",
+            "quantity":1000,
+            "current-stock":200,
+            "barcode":"202210066"
+        },
+        {
+            "name": "Ruchi Gold oil",
+            "unit":"ml",
+            "mrp":201,
+            "sellingPrice":150,
+            "PurchaseRate":147,
+            "brand": "Ruchi",
+            "category": "oil",
+            "quantity":1,
+            "current-stock":200,
+            "barcode":"202210067"
+        }
+        
+    ]
+}

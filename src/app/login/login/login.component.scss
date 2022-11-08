@@ -1,0 +1,26 @@
+@import '../../../assets/variable.scss';
+
+@import '../../../assets/media-mixin.scss';
+
+.login {
+    &__container {
+        width: 300px;
+        padding:20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 3px 1px $gray;
+        border-radius: 4px;
+        @include respond-to('large') {
+            position: fixed;
+            margin-top: -8px;
+            right: 15px;
+        }
+        .divider{
+            width: 100%;
+            margin: 12px 0;
+        }
+    }   
+}

@@ -1,0 +1,12 @@
+{
+    "filters": [
+        {
+            "title" : "Categories", 
+            "items":[ "staples", "food & beverages", "personal care", "home care", "cloths", "General"]
+        },
+        {
+            "title": "Brands",
+            "items": ["Ganesh", "Gold winner", "Freedom", "Hul", "Mtr", "Parry sugar", "Purich", "General"]
+        }
+    ]
+}

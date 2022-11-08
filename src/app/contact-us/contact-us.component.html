@@ -1,0 +1,43 @@
+
+    <div class="contact-form__container">
+     
+         <div class="contact-form__wrap">
+            <h2>Contact US</h2>
+            <form [formGroup]="contactForm"  (ngSubmit)="submitTheform()" class="form">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input type="phone" matInput formControlName="phone">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field>
+                <div formArrayName="contact">
+                <div *ngFor="let contact of contForm.controls; let i = index" formGroupName="{{i}}">
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Age</mat-label>
+                        <input type="text" matInput formControlName="age">
+                    </mat-form-field>
+               </div>
+            </div>
+                <div class="form-footer">
+                     <button mat-raised-button color="primary">Submit</button>
+                     <button mat-button>reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<button mat-raised-button (click)="addContact()">Add</button>

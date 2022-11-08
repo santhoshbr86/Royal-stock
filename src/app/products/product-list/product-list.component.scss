@@ -1,0 +1,91 @@
+@import '../../../assets/media-mixin.scss';
+@import '../../../assets/variable.scss';
+
+.product{
+    &-listing-filter {
+        position: fixed;
+        bottom:0;
+        right: 50;
+        z-index: 4;
+        width: 100%;
+        padding:15px;
+        .mat-primary {
+            width: 50%;
+        }
+    }
+    &-listing-content{
+        padding:40px 15px;
+        width: 100%;
+        @include respond-to('medium') {
+          
+        }
+    }
+    &-card{
+        width: 330px;
+        margin: 15px 0;
+        background: $warm-white;
+        @include respond-to('medium') {
+            width: 290px;
+            .mat-card-title{
+                text-overflow: ellipsis;
+                text-transform: capitalize;
+            }
+            &:nth-of-type(2n+1) {
+                margin-right: 0;
+            }
+        }
+        @media print {
+            width: 280px;
+            
+        }
+    }
+    &-listing__button{
+        position: fixed;
+        right:15px;
+        bottom:15px;
+        @media print {
+            display: none;
+        }
+        &-add{
+            position: fixed;
+            right:15px;
+            top:70px;
+            z-index: 8;
+            @media print {
+                display: none;
+            }
+        }
+    }
+}
+.mat-card-content {
+    display: flex;
+    justify-content: right;
+    span{
+        font-size: 40px;
+        text-align: right;
+    }
+}
+.mat-card-actions{
+    padding:8px !important;
+   @media print {
+       display: none;
+   }
+}
+
+.cart{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $warm-white;
+    z-index: 10;
+    width: 100%;
+    @media print {
+        display: none;
+    }
+}
+.paginator{
+    @media print {
+        display: none;
+    }
+}
+

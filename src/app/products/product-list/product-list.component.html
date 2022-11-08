@@ -1,0 +1,37 @@
+<div class="product-listing" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center"  fxLayoutAlign.xs="center center" fxLayoutGap="15px">
+    <aside class="product-listing-filter"  fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" fxLayoutAlign.xs="end end" >
+        <!-- <button mat-raised-button><mat-icon>search</mat-icon></button> -->
+        <mat-menu #menu="matMenu">
+            <app-product-filter></app-product-filter>
+            <!-- <button mat-raised-button color="danger" [matMenuTriggerFor]="menu">Apply<mat-icon>filter_list</mat-icon></button> -->
+        </mat-menu>
+        <button class="product-listing__button" mat-raised-button color="danger" [matMenuTriggerFor]="menu"><mat-icon>filter_list</mat-icon></button>
+    </aside>
+    <section class="product-listing-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign.xs="center center" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <button class="product-listing__button-add" mat-flat-button color="primary" (click)="openDialog()">Add Product</button>
+        <mat-card class="product-card" *ngFor="let product of productListRenderer; trackBy:trackByFn;">
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
+            <mat-card-content>
+                   <!-- <span>MRP: {{product.mrp}}</span>,  -->
+                   <span>{{product.sellingPrice |  currency:'INR'}}</span>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="addTocart(product._id)"><mat-icon>add_shopping_cart</mat-icon></button>
+                <button mat-button color="primary" (click)="editProduct(product)"><mat-icon>edit</mat-icon></button>
+              <button mat-button color="primary" (click)="deleteProduct(product._id)"><mat-icon>delete</mat-icon></button>
+            </mat-card-actions>
+        </mat-card>
+       
+         <div class="paginator__wrap">
+            <mat-paginator class="paginator" [length]="productList.length"
+            [pageSize]="12"
+            [pageIndex]="0"
+            [pageSizeOptions]="[12, 24, 48, 96]"
+            aria-label="Select page" (page)="getPageList($event)">
+            </mat-paginator>
+         </div>
+    </section>
+
+    <app-cart class="cart"></app-cart>
+</div>

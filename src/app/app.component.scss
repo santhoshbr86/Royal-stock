@@ -1,0 +1,37 @@
+.royal {
+&-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  
+    .toolbar{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      @media print {
+        display: none;
+       }
+    }
+    .route{
+      &__container{
+        height: 100%;
+      }
+    }
+   
+  }
+  &__login-btn {
+
+  }
+  
+  &__logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  &__logo-text{
+    padding-top: 4px;
+  }
+}

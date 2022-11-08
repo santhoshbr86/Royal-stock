@@ -1,0 +1,80 @@
+<div class="add-Product">
+    <div class="add-Product__container">
+        <header class="add-Product__header">
+            <h1>Add Product</h1>
+        </header>
+        <main class="add-Product__content">
+            <form *ngIf="addProductForm" [formGroup]="addProductForm" novalidate>
+                
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter Product Name</mat-label>
+                      <input matInput formControlName="name" placeholder="Enter product Name">
+                      <mat-error *ngIf="addProductForm.controls['name'].invalid &&(addProductForm.controls['name'].dirty || addProductForm.controls['name'].touched)">Name is required!</mat-error>
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                      <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                    <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Quantity</mat-label>
+                        <input matInput formControlName="quantity" placeholder="Enter Quantity">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                      </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Unit</mat-label>
+                        <mat-select formControlName="unit" class="unit">
+                            <mat-option value="unit" *ngFor="let unit of units">{{unit}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Product Mrp</mat-label>
+                        <input matInput formControlName="mrp" placeholder="Enter Mrp">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                      </mat-form-field>
+                
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Product SP</mat-label>
+                        <input matInput formControlName="sellingPrice" placeholder="Enter Selling Price">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                      </mat-form-field>
+                 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Product PTR</mat-label>
+                        <input matInput formControlName="purchaseRate" placeholder="Enter PTR">
+                        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Hint</mat-hint> -->
+                      </mat-form-field>
+                  
+                    <mat-form-field appearance="outline" >
+                        <mat-label>Enter Product Category</mat-label>
+                        <mat-select formControlName="category">
+                            <mat-option value="{{cat}}" *ngFor="let cat of categories">{{cat}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                 
+                    <mat-form-field appearance="outline">
+                        <mat-label>Enter Brand </mat-label>
+                        <mat-select formControlName="brand">
+                            <mat-option value="{{brand}}" *ngFor="let brand of brands">{{brand}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Enter Stock </mat-label>
+                        <input matInput formControlName="stock" placeholder="Enter Stock">
+                      </mat-form-field>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Enter Barcode</mat-label>
+                        <input matInput formControlName="barcode" placeholder="Enter Barcode">
+                      </mat-form-field>
+            </form>
+        </main>
+        <mat-divider></mat-divider>
+        <footer class="add-Product__footer">
+            <button mat-button color="primary">Cancel</button>
+            <button mat-flat-button color="primary" (click)="saveProduct()">Save</button>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+@import '../../../assets/media-mixin.scss';
+
+.add-Product{
+    &__container {
+        overflow: scroll;
+        height: 600px;
+    }
+    &__content{
+        
+        form{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            @include respond-to('small') {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .mat-form-field{
+                    width: 48%;
+                }
+            }
+           p {
+                display: flex;
+                justify-content: start;
+                flex-direction: row;
+                .mat-form-field{
+                    margin-right: 15px;
+                }
+           }
+        }
+      
+    }
+    &__footer{
+        margin-top:10px;
+        display: flex;
+        justify-content: right;
+        button {
+            margin-right: 15px;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+<div class="current-stock__signin"  fxFlex="flex-basic">
+    <h1>Sign In</h1>
+    <form [formGroup]="loginForm" *ngIf="loginForm" novalidate (ngSubmit)="onLoginSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Enter Email / Phone Number</mat-label>
+            <input type="text" matInput placeholder="Enter Email / Phone Number" formControlName="userName">
+            <mat-error *ngIf="loginForm.invalid && loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched">Enter valid email or phone number</mat-error>
+            <!-- <mat-hint>Hint</mat-hint> -->
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter Password" formControlName="password">
+            <!-- <mat-hint>Hint</mat-hint> -->
+            <mat-error *ngIf="loginForm.invalid && loginForm.controls['password'].dirty || loginForm.controls['password'].touched">Enter valid email or phone number</mat-error>
+        </mat-form-field>
+        <button 
+            mat-flat-button 
+            type="submit"
+            color="primary"
+            [disabled]="submited"
+            >
+            Submit
+        </button>
+       
+    </form>
+</div>

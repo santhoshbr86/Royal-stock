@@ -1,0 +1,14 @@
+<mat-card class="filter-container" >
+    <mat-card-title>Filter Products</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-actions (click)="$event.stopPropagation();">
+        <section class="filter-wrap" *ngFor="let filter of productFilters">
+            <div class="filter-one">
+               <h2>{{filter.title}}</h2>
+               <mat-checkbox value="item" (change)="onFilterChange($event, filter.title, item)" *ngFor="let item of filter.items">{{item}}</mat-checkbox>
+            </div>
+        </section>
+    </mat-card-actions>
+    <mat-divider></mat-divider>
+    <button mat-flat-button color="danger" class="filter-apply" (click)="filterProducts()"><mat-icon>search</mat-icon>Apply</button>
+</mat-card>

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/royal-stock",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

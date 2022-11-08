@@ -1,0 +1,67 @@
+<!-- <div class="cart-container">
+    <header class="cart-header">
+        <mat-icon>expand</mat-icon>
+        <mat-icon>Collapse</mat-icon>
+    </header>
+    <header class="cart-header">
+        <h1>Cart</h1>
+        <p>12</p>
+    </header>
+    <mat-list role="list" class="cart-list">
+        <mat-list-item role="listitem">Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
+      </mat-list>
+</div> -->
+
+<mat-accordion class="cart-container">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+        <mat-expansion-panel-header class="cart-header">
+            <mat-panel-title>
+                <h1><span>{{cartItems.length}}</span>Products in the cart</h1>
+            </mat-panel-title>
+            <mat-panel-description>
+                
+                <h2>₹ {{totalCost}}</h2>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list role="list" class="cart-list">
+            <mat-list-item  class="cart-list__item" role="listitem" *ngFor="let item of cartItems">
+                <div class="cart-list__item-content">
+                    <span class="cart-list__name">{{item.name}}</span>
+                <mat-form-field class="cart-list__field">
+                    <button 
+                      mat-button 
+                      mat-icon-button 
+                      matPrefix 
+                      aria-label="Remove" 
+                      (click)="decrementValue(item._id)">
+                      <mat-icon>remove</mat-icon>
+                    </button>
+                    <input matInput type="text" [(ngModel)]="item.quantity" />
+                    <button 
+                      mat-button 
+                      mat-icon-button 
+                      matSuffix
+                      aria-label="Add" 
+                      (click)="incrementValue(item._id)">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </mat-form-field>
+                  <button 
+                  mat-button 
+                  mat-icon-button 
+                  matSuffix (click)="deleteProduct(item._id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                  <div>{{item.price * item.quantity}}</div>
+                </div>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+          
+        </mat-list>
+
+    </mat-expansion-panel>
+
+</mat-accordion>
