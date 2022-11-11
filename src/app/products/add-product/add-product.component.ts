@@ -4,8 +4,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product';
 import { ProductsService } from 'src/app/servicies/products.service';
+import { AppState } from 'src/app/store/app.state';
+import { Store } from '@ngrx/store';
+import * as productActions from '../../store/actions/product.actions';
 
-@Component({
+@Component({ 
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
@@ -17,7 +20,7 @@ export class AddProductComponent implements OnInit, AfterViewInit {
   brands: any;
   units: any;
   productDetails!: Product;
-  constructor(private fb: FormBuilder, private pService: ProductsService, private cdr: ChangeDetectorRef, @Inject(MAT_DIALOG_DATA) public data: Product) {
+  constructor(private fb: FormBuilder, private store:Store<AppState>, private pService: ProductsService, private cdr: ChangeDetectorRef, @Inject(MAT_DIALOG_DATA) public data: Product) {
     
    }
 
@@ -62,8 +65,9 @@ export class AddProductComponent implements OnInit, AfterViewInit {
     
   }
   saveProduct(){
-    console.log(this.addProductForm);
+   
     if(this.addProductForm.valid && Object.keys(this.data).length === 0){
+        this.store.dispatch(new productActions.AddProduct(this.addProductForm.value));
         this.pService.saveProduct(this.addProductForm.value).subscribe((res:any) => {
           console.log(res);
         })

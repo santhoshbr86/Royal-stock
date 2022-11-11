@@ -5,6 +5,9 @@ import { Product } from '../../model/product';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import * as productActions from '../../store/actions/product.actions';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -14,10 +17,16 @@ export class ProductListComponent implements OnInit {
   productList!: Product[];
   productListRenderer!: Product[]; 
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
-  constructor(private productsService: ProductsService, public dialog: MatDialog) { }
+  constructor(private productsService: ProductsService, public dialog: MatDialog, private store:Store<AppState>) {}
 
   ngOnInit(): void {
+    this.store.dispatch(new productActions.LoadProduct());
+    this.store.select('Product').subscribe(da => {
+      this.productList = da;
+      console.log(this.productList);
+    });
     this.getProducts();
+
   }
   someMethod() {
     this.trigger.openMenu();

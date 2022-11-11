@@ -38,10 +38,16 @@ import { ErrorInterceptorService } from './interceptors/error-interceptor.servic
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSelectModule } from '@angular/material/select';
+import { StoreModule } from '@ngrx/store';
 
+import { reducer } from './store/reducers/product.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/effects/product.effects';
+import { effects } from './store';
 export function httpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http);
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +60,10 @@ export function httpLoaderFactory(http: HttpClient){
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({
+      product: reducer
+    }),
+
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -77,7 +87,8 @@ export function httpLoaderFactory(http: HttpClient){
         useFactory:httpLoaderFactory,
         deps:[HttpClient]
       }
-    })
+    }),
+    EffectsModule.forRoot(effects)
   ],
   providers: [
     {provide:ErrorHandler, useClass:ErrorHandlerService},
